@@ -1,0 +1,166 @@
+
+.accountWrapper {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accountLeft {
+    margin-right: 25px;
+    max-width: 420px;
+}
+
+.accountRight {
+    min-width: 420px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.accountLogo {
+    font-size: 45px;
+    font-weight: bold;
+    color: #34495e;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.accountDescription {
+    font-size: 17.5px;
+}
+
+.accountForm {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.accountBox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.accountInput {
+    height: 37.5px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding-left: 10px;
+    font-size: 15px;
+}
+
+
+.accountInput:focus {
+    outline: none;
+}
+
+.accountBlueBtn {
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    background-color: #1775ee;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+    font-size: 12.5px;
+}
+
+.accountBlueBtn:hover {
+    background-color: #186fe0;
+}
+
+.accountGreenBtn {
+    height: 35px;
+    border-radius: 10px;
+    border: none;
+    background-color: #42b72a;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 12.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.accountGreenBtn:hover {
+    background-color: #42ab2c;
+}
+
+.accountErrors {
+    color: red;
+    font-size: small;
+}
+
+@media all and (max-width: 900px) {
+    .accountContainer {
+        display: block;
+    }
+
+    .accountWrapper {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .accountLeft {
+        margin: 0 0 25px 0;
+    }
+}
+
+@media all and (max-width: 500px) {
+    .accountWrapper {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+    }
+
+    .accountLeft {
+        width: 97.5%;
+    }
+
+    .accountRight {
+        min-width: 0;
+        width: 97.5%;
+        padding: 20px 5px 20px 5px;
+    }
+
+    .accountLogo {
+        font-size: 40px;
+    }
+
+    .pwd {
+    max-width: 50%;
+}
+}
+
+.block {
+    display: block;
+}
+
+.block > * { 
+    width: 100%;
+}
+
+
+.gray {
+    background-color: #bdc3c7;
+}
+
+.gray:hover {
+    background-color: #bdc3c7;
+}

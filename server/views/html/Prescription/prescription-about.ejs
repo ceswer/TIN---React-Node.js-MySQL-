@@ -1,0 +1,40 @@
+<%- include('../../header.ejs') %>
+    <main>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+
+        <form class="form">
+            <label for="drug_id">Drug:</label>
+            <a href="/drugs/details/<%= presc.drug.id %>">
+                <input type="text" name="drug_id" id="Drug" style=" color: blue; cursor: pointer;"
+                    value="<%= presc.drug.name %> " disabled>
+            </a>
+            <label for="doctor_id">Doctor:</label>
+            <a href="/doctors/details/<%= presc.doctor.id %>">
+                <input type="text" name="doctor_id" id="Doctor" style=" color: blue; cursor: pointer;"
+                    value="<%= presc.doctor.person.name + ' ' + presc.doctor.person.surname %> " disabled>
+            </a>
+            <label for="patient">Patient:</label>
+            <a href="/patients/details/<%= presc.patient.id %>">
+                <input type="text" name="patient" id="Patient" style="color: blue; cursor: pointer;"
+                    value="<%= presc.patient.person.name + ' ' + presc.patient.person.surname %>" disabled>
+            </a>
+            <label for="dateOfPrescription">Date of prescription:</label>
+            <input type="text" name="dateOfPrescription" id="DateOfPrescription"
+                value="<%= moment(presc.dateOfPrescription).format('YYYY-MM-DD') %>" disabled>
+
+            <label for="note">Note:</label>
+            <input type="text" name="note" id="Note" value="<%= presc.note %>" disabled>
+
+            <label for="dosage">Dosage:</label>
+            <input type="text" name="dosage" id="Dosage" value="<%= presc.dosage %>" disabled>
+        </form>
+
+        <div class="form-buttons">
+            <a href="/prescriptions/edit/<%= presc.id %>" class="list-actions-button-edit">Edit</a>
+            <a href="/prescriptions" class="list-actions-button-details">Back</a>
+        </div>
+    </main>
+
+    <%- include('../../footer.ejs') %>

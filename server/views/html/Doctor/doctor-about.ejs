@@ -1,0 +1,82 @@
+<%- include('../../header.ejs') %>
+    <main>
+        <form class="form">
+            <input type="hidden" name="id" value="<%= doctor.id %> ">
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="Email" value="<%= doctor.person.email %>" disabled>
+            <span id="errorName"></span>
+
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="Name" value="<%= doctor.person.name %>" disabled>
+            <span id="errorName"></span>
+
+            <label for="middleName">MiddleName:</label>
+            <input type="text" name="middleName" id="MiddleName" val="<%= doctor.person.middleName %>">
+            <span id="errorMiddleName"></span>
+
+            <label for="surname">Surname:</label>
+            <input type="text" name="surname" id="Surname" value="<%= doctor.person.surname %>" disabled>
+            <span id="errorSurname"></span>
+
+            <label for="dateOfBirth">Date of birth:</label>
+            <input type="date" name="dateOfBirth" id="DateOfBirth"
+                value="<%= moment(doctor.dateOfBirth).format('YYYY-MM-DD') %>" disabled>
+            <span id="errorDateOfBirth"></span>
+
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="Address" value="<%= doctor.person.address %>" disabled>
+            <span id="errorAddress"></span>
+
+            <label for="position">Position:</label>
+            <input type="text" name="position" id="Position" value="<%= doctor.position %>" disabled>
+
+            <label for="dateOfAcceptance">Date of acceptance:</label>
+            <input type="date" name="dateOfAcceptance" id="DateOfAcceptance"
+                value="<%= moment(doctor.dateOfAcceptance).format('YYYY-MM-DD') %>" disabled>
+
+            <div class="form-buttons">
+                <a href="/doctors/edit/<%= doctor.id %>" class="list-actions-button-edit">Edit</a>
+            </div>
+        </form>
+
+        <h2>Prescriptions written by this doctor</h2>
+        <% if (doctor.prescriptions.length !=0) { %>
+            <table class="table-list">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Date of prescription</th>
+                        <th scope="col">Note</th>
+                        <th scope="col">Dosage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let presc of doctor.prescriptions) { %>
+                        <tr>
+                            <td><a href="/prescriptions/details/<%= presc.id %>">
+                                    <%= presc.id %>
+                                </a></td>
+                            <td>
+                                <%= moment(presc.dateOfPrescription).format('YYYY-MM-DD') %>
+                            </td>
+                            <td>
+                                <%= presc.note %>
+                            </td>
+                            <td>
+                                <%= presc.dosage %>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <p>There is nothing prescripted by this doctor!</p>
+                <% } %>
+
+                    <div class="form-buttons">
+                        <a href="/doctors" class="list-actions-button-details">Back</a>
+                    </div>
+    </main>
+    <%- include('../../footer.ejs') %>

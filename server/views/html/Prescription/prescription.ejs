@@ -1,0 +1,71 @@
+<%- include('../../header.ejs') %>
+    <main>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+        <% if (prescriptions.length !=0) { %>
+            <table class="table-list">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col" class="hide">Patient</th>
+                        <th scope="col" class="hide">Doctor</th>
+                        <th scope="col" class="hide">Drug</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Dosage</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let presc of prescriptions) { %>
+                        <tr>
+                            <td>
+                                <%= presc.id %>
+                            </td>
+                            <td class="hide">
+                                <a href="/patients/details/<%= presc.patient.id %> ">
+                                    <%= `${presc.patient.person.name} ${presc.patient.person.surname}` %>
+                                </a>
+                            </td>
+                            <td class=hide>
+                                <a href="/doctors/details/<%= presc.doctor.id %> ">
+                                    <%= `${presc.doctor.person.name} ${presc.doctor.person.surname}` %>
+                                </a>
+                            </td>
+                            <td class=hide>
+                                <a href="/drugs/details/<%= presc.drug.id %> ">
+                                    <%= presc.drug.name %>
+                                </a>
+                            </td>
+                            <td>
+                                <%= moment(presc.date).format('YYYY-MM-DD') %>
+                            </td>
+                            <td>
+                                <%= presc.dosage %>
+                            </td>
+                            <td>
+                                <ul class="list-actions">
+                                    <li><a class="list-actions-button-details"
+                                            href="/prescriptions/details/<%= presc.id %>">About</a></li>
+                                    <li><a class="list-actions-button-edit"
+                                            href="/prescriptions/edit/<%= presc.id %>">Edit</a></li>
+                                    <li><a class="list-actions-button-delete"
+                                            href="/prescriptions/delete/<%= presc.id %>">Delete</a>
+                                    </li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <p>There is no prescriptions in the list! Try to add some. </p>
+                <% } %>
+
+                    <div class="div-button-add">
+                        <a href="/prescriptions/add" class="button-add">Add new prescription</a>
+                    </div>
+    </main>
+
+    <%- include('../../footer.ejs') %>

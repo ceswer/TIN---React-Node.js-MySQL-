@@ -1,0 +1,71 @@
+<%- include('../../header.ejs') %>
+
+    <main>
+        <!--
+        <script type="application/javascript" src="/js/validationCommon.js"></script>
+        <script type="application/javascript" src="/js/validationPatient.js"></script>
+        -->
+        <h2>
+            <%= pageTitle %>
+        </h2>
+
+        <form action="<% formAction %>" method="post" class="form" novalidate onsubmit="return validateForm();">
+            <input type="hidden" name="id">
+
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="Email" value="<%= patient.email %>" required>
+            <span id="errorEmail" class="errors-text"><% if(errors !=null) { if (errors.find(e=> e.path.includes('email'))) { %>
+                <%= errors.find(e=> e.path.includes('email')).message %>
+                    <% }} %></span>
+
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="Name" value="<%= patient.name %>" required>
+            <span id="errorName" class="errors-text"><% if(errors !=null) { if (errors.find(e=> e.path.includes('name'))) { %>
+                <%= errors.find(e=> e.path.includes('name')).message %>
+                    <% }} %></span>
+
+            <label for="middleName">MiddleName:</label>
+            <input type="text" name="middleName" value="<%= patient.middleName %>" id="MiddleName">
+            <span id="errorMiddleName" class="errors-text"><% if(errors !=null) { if (errors.find(e=> e.path.includes('middleName'))) { %>
+                <%= errors.find(e=> e.path.includes('middleName')).message %>
+                    <% }} %></span>
+
+            <label for="surname">Surname:</label>
+            <input type="text" name="surname" id="Surname" value="<%= patient.surname %>" required>
+            <span id="errorSurname" class="errors-text"><% if(errors !=null) { if (errors.find(e=> e.path.includes('surname'))) { %>
+                <%= errors.find(e=> e.path.includes('surname')).message %>
+                    <% }} %></span>
+
+            <label for="dateOfBirth">Date of birth:</label>
+            <input type="date" name="dateOfBirth" id="DateOfBirth" value="<%= patient.dateOfBirth %>" required>
+            <span id="errorDateOfBirth" class="errors-text"><% if(errors !=null) { if (errors.find(e=> e.path.includes('dateOfBirth'))) { %>
+                <%= errors.find(e=> e.path.includes('dateOfBirth')).message %>
+                    <% }} %></span>
+
+            <label for="address">Address:</label>
+            <input type="text" name="address" id="Address" value="<%= patient.address %>" required>
+            <span id="errorAddress" class="errors-text"><% if(errors !=null) { if (errors.find(e=> e.path.includes('address'))) { %>
+                <%= errors.find(e=> e.path.includes('address')).message %>
+                    <% }} %></span>
+
+            <label for="phoneNumber">Phone number:</label>
+            <input type="text" name="phoneNumber" id="PhoneNumber" value="<%= patient.phoneNumber %>" required>
+            <span id="errorPhoneNumber" class="errors-text"><% if(errors !=null) { if (errors.find(e=> e.path.includes('phoneNumber'))) { %>
+                <%= errors.find(e=> e.path.includes('phoneNumber')).message %>
+                    <% }} %></span>
+
+            <label for="dateOfRegistration">Date of registration:</label>
+            <input type="date" name="dateOfRegistration" id="DateOfRegistration" value="<%= patient.dateOfRegistration%>" required>
+            <span id="errorDateOfRegistration" class="errors-text"><% if(errors !=null) { if (errors.find(e=> e.path.includes('dateOfRegistration'))) { %>
+                <%= errors.find(e=> e.path.includes('dateOfRegistration')).message %>
+                    <% }} %></span>
+
+            <span id="errorSummury" class="errors-text"><%= errors != null ? "There are some errors" : "" %> </span>
+            <div class="form-buttons">
+                <input type="submit" value="Add" class="form-button-submit">
+                <a href="/doctors" class="form-button-cancel">Cancel</a>
+            </div>
+        </form>
+    </main>
+
+    <%- include('../../footer.ejs') %>

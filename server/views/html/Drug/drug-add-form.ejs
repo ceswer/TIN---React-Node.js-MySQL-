@@ -1,0 +1,40 @@
+<%- include('../../header.ejs') %>
+
+    <main>
+        <!--
+        <script type="application/javascript" src="/js/validationCommon.js"></script>
+        <script type="application/javascript" src="/js/validationDrugForm.js"></script>
+        -->
+        <h2>
+            <%= pageTitle %>
+        </h2>
+
+        <form action="<%= formAction %>" method="post" class="form" novalidate onsubmit="return validateForm();">
+            <input type="hidden" name="id" value="<%= drug.id %>">
+            <div class="inputContainer">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="Name" value="<%= drug.name %>" required>
+                <span id="errorName" class="errors-text">  
+                    <% if(errors !=null) { if (errors.find(e=> e.path.includes('name'))) { %>
+                        <%= errors.find(e=> e.path.includes('name')).message %>
+                            <% }} %>
+                </span>
+            </div>
+            <div class="inputContainer">
+                <label for="description">Description:</label>
+                <input type="text" name="description" id="Description" value="<%= drug.description %>" required>
+                <span id="errorDescription" class="errors-text"> 
+                    <% if(errors !=null) { if (errors.find(e=> e.path.includes('description'))) { %>
+                        <%= errors.find(e=> e.path.includes('description')).message %>
+                            <% }} %>
+                </span>
+            </div>
+            <span id="errSum" class="errors-text"><%= errors != null ? "There are some errors occured!" : "" %> </span>
+            <div class="form-buttons">
+                <input type="submit" value="<%= btnLabel %>" class="<%= formMode === 'create' ? "form-button-submit" : "list-actions-button-edit"%>">
+                <a href="/drugs" class="<%= formMode === 'create' ? 'form-button-cancel' : 'list-actions-button-details' %>">Cancel</a>
+            </div>
+        </form>
+    </main>
+
+    <%- include('../../footer.ejs') %>

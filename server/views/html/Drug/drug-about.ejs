@@ -1,0 +1,62 @@
+<%- include('../../header.ejs') %>
+    <main>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+        <form class="form">
+            <input type="hidden" name="id" value="<%= drug.id %>">
+            <div class="inputContainer">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="Name" value="<%= drug.name %>" disabled>
+            </div>
+            <div class="inputContainer">
+                <label for="description">Description:</label>
+                <input type="text" name="description" id="Description" value="<%= drug.description %>" disabled>
+            </div>
+        </form>
+
+        <div class="form-buttons">
+            <a href="/drugs/edit/<%= drug.id %>" class="list-actions-button-edit">Edit</a>
+        </div>
+
+        <h2>Drugs used in prescriptions</h2>
+        <% if (drug.prescriptions.length !=0) { %>
+            <table class="table-list">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Date of prescription</th>
+                        <th scope="col">Note</th>
+                        <th scope="col">Dosage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let prescription of drug.prescriptions) { %>
+                        <tr>
+                            <td>
+                                <a href="/prescriptions/details/<%= prescription.id %>">
+                                    <%= prescription.id %>
+                                </a>
+                            </td>
+                            <td>
+                                <%= prescription.dateOfPrescription.toISOString().split('T')[0] %>
+                            </td>
+                            <td>
+                                <%= prescription.note %>
+                            </td>
+                            <td>
+                                <%= prescription.dosage %>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <p>There is no drugs used in prescriptions. Try to add some!</p>
+                <% } %>
+                    <div class="form-buttons">
+                        <a href="/drugs" class="list-actions-button-details">Back</a>
+                    </div>
+    </main>
+    <%- include('../../footer.ejs') %>

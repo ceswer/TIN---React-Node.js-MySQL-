@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <title>
+        <%= pageTitle %>
+    </title>
+</head>
+
+<body>
+    <header>
+        <h1>Medical help issuer</h1>
+        <img src="../../pics/tin_dzienne_11c_s20363_mpo0.png" id="logo" alt="Medical help issuer logo">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : '' %>">Main page</a></li>
+            <li><a href="/doctors" class="<%= navLocation == 'doctors' ? 'active' : '' %>">Doctors</a></li>
+            <li><a href="/patients" class="<%= navLocation == 'patients' ? 'active' : '' %>">Patients</a></li>
+            <li><a href="/prescriptions" class="<%= navLocation == 'prescriptions' ? 'active' : '' %>">Prescriptions</a>
+            </li>
+            <li><a href="/drugs" class="<%= navLocation == 'drugs' ? 'active' : '' %>">Drugs</a></li>
+        </ul>
+    </nav>

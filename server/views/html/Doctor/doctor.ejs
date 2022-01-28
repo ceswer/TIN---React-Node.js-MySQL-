@@ -1,0 +1,58 @@
+<%- include('../../header.ejs') %>
+
+    <main>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+
+        <% if (doctors !=0) { %>
+            <table class="table-list">
+                <caption></caption>
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Surname</th>
+                        <th scope="col">Position</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let doc of doctors) { %>
+                        <tr>
+                            <td>
+                                <%= doc.id %>
+                            </td>
+                            <td>
+                                <%= doc.person.name %>
+                            </td>
+                            <td>
+                                <%= doc.person.surname %>
+                            </td>
+                            <td>
+                                <%= doc.position %>
+                            </td>
+                            <td>
+                                <ul class="list-actions">
+                                    <li><a href="/doctors/details/<%= doc.id %>"
+                                            class="list-actions-button-details">About</a></li>
+                                    <li><a href="/doctors/edit/<%= doc.id %>" class="list-actions-button-edit">Edit</a>
+                                    </li>
+                                    <li><a href="/doctors/delete/<%= doc.id %>"
+                                            class="list-actions-button-delete">Delete</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+
+            <% } else { %>
+                <p>The list is empty. Try to add new doctor!</p>
+                <% } %>
+                    <div class="div-button-add">
+                        <a href="/doctors/add" class="button-add">Add new doctor</a>
+                    </div>
+    </main>
+
+    <%- include('../../footer.ejs') %>
