@@ -8,7 +8,7 @@
 # Patient add page with errors (admin role)
 ![login page](https://github.com/ceswer/TIN---React-Node.js-MySQL-/blob/main/photos/Web%20capture_28-1-2022_155314_localhost.jpeg)
 # Notice window 
-![login page](https://github.com/ceswer/TIN---React-Node.js-MySQL-/blob/main/photos/Web%20capture_28-1-2022_155121_localhost.jpeg)
+![login page](https://github.com/ceswer/TIN---React-Node.js-MySQL-/blob/main/photos/Web%20capture_28-1-2022_155441_localhost.jpeg)
 # Doctor details page (user role)
 ![login page](https://github.com/ceswer/TIN---React-Node.js-MySQL-/blob/main/photos/Web%20capture_28-1-2022_155456_localhost.jpeg)
 # Your account page (user role)
